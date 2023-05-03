@@ -91,15 +91,10 @@ impl NodeId {
 }
 
 /// An implementation of arena-tree.
+#[derive(Debug)]
 pub struct Tree<T> {
-    nodes: RefCell<Vec<InnerNode<T>>>,
-    names: HashMap<NodeId, QualName>,
-}
-
-impl<T: Debug> Debug for Tree<T> {
-    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
-        fmt.debug_struct("Tree").finish()
-    }
+    pub nodes: RefCell<Vec<InnerNode<T>>>,
+    pub names: HashMap<NodeId, QualName>,
 }
 
 impl<T: Clone> Clone for Tree<T> {
